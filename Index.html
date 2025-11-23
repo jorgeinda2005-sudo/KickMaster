@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KickMaster - Taekwondo</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        p, em, strong, label, h1, h2 {
+            text-align: justify;
+        }
+
+        header, section, footer {
+            opacity: 0;
+            animation: fadeUp 1s ease forwards;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0057b7, #00a6fd);
+            color: white;
+            padding: 40px;
+            text-align: left;
+            animation-delay: .2s;
+        }
+
+.headerBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: nowrap;
+    text-align: left;
+}
+
+.headerBox img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+    border-radius: 12px;
+    background-color: rgba(255,255,255,0.12);
+    padding: 6px;
+}
+
+.headerText {
+    max-width: 850px;
+}
+
+        h1 {
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        h2 {
+            color: #003670;
+            font-weight: 700;
+        }
+
+        section {
+            padding: 40px;
+            width: 90%;
+            margin: auto;
+            animation-delay: .4s;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #003670;
+            color: white;
+            margin-top: 40px;
+            animation-delay: .6s;
+        }
+
+        .videos {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .video-box {
+            width: 100%;
+            max-width: 600px;
+            transform: scale(0.9);
+            opacity: 0;
+            animation: fadeZoom 0.8s ease forwards;
+        }
+
+        .instructors {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .cardInstructor {
+            width: 300px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(40px);
+            animation: fadeUp 1s ease forwards;
+        }
+
+        .cardInstructor img {
+            width: 100%;
+            border-radius: 10px;
+            transition: .3s;
+        }
+
+        .cardInstructor img:hover {
+            transform: scale(1.05);
+        }
+
+        .payBox {
+            width: 90%;
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            text-align: center;
+        }
+
+        .btnMetodo {
+            width: 48%;
+            padding: 12px;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            transition: .3s;
+            font-weight: bold;
+        }
+
+        .btnMetodo:hover {
+            transform: scale(1.05);
+            background-color: #eef3ff;
+        }
+
+        .btnMetodo img {
+            height: 30px;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            border: 1px solid #999;
+            border-radius: 5px;
+            font-size: 15px;
+            font-family: inherit;
+        }
+
+        label {
+            font-weight: 600;
+            margin-top: 15px;
+            display: block;
+            text-align: left;
+        }
+
+        .btnPay {
+            margin-top: 20px;
+            padding: 12px;
+            font-size: 16px;
+            background-color: #0057b7;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            width: 100%;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .btnPay:hover {
+            background-color: #003670;
+        }
+
+        .short-local {
+            width: 300px;
+            height: 550px;
+            margin: auto;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            cursor: pointer;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .short-local .playIcon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.7);
+            padding: 15px 20px;
+            border-radius: 50%;
+            color: white;
+            font-size: 38px;
+            transition: .3s;
+        }
+
+        .short-local:hover .playIcon {
+            background: rgba(0,0,0,0.9);
+        }
+
+        video.horizontal {
+            object-fit: contain;
+            background-color: #000;
+        }
+
+        .short-local.horizontal {
+            width: 600px;
+            height: 340px;
+        }
+
+        @keyframes fadeUp { 0% {opacity:0; transform:translateY(40px);} 100% {opacity:1; transform:translateY(0);} }
+        @keyframes fadeZoom { 0% {opacity:0; transform:scale(0.8);} 100% {opacity:1; transform:scale(1);} }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <div class="headerBox">
+        <img src="KickMaster_Logo.jpg" alt="Logo KickMaster">
+
+        <div class="headerText">
+            <h1>Bienvenidos a KickMaster 🥋</h1>
+            <p><strong>Kickmaster: Primeros pasos, grandes campeones. Somos una escuela dedicada al TaeKwonDo</strong> 
+                enfocada en formar alumnos disciplinados, fuertes y seguros de sí mismos. Únete y aprende técnicas de defensa personal, 
+                mejora tu condición física y compite con los mejores.</strong></p>
+        </div>
+    </div>
+</header>
+
+<section>
+    <h2>Videos de muestra de TaeKwonDo para principiantes</h2>
+    <p>Da clic en los videos para aprender un poco sobre técnicas basicas de este hermoso arte marcial, entrenamientos y combates.</p>
+
+    <div class="videos">
+
+        <div class="video-box">
+            <div id="localShort1" class="short-local" style="background-image:url('thumbnail1.jpg');">
+                <div class="playIcon">▶</div>
+            </div>
+            <p><em>En este pequeño clip se muestra como se realiza la patada Ap Chagui es una patada frontal basica de TaeKwonDo 
+                    realizada levantando la rodilla y extendiendo rapidamente la pierna pateando con la bola del pie generando una gran 
+                    potencia de pateo. Esta patada permite atacar de manera rapida y mantener distancia con el Oponente.</em></p>
+        </div>
+
+        <div class="video-box">
+            <div id="localShort2" class="short-local" style="background-image:url('thumbnail2.jpg');">
+                <div class="playIcon">▶</div>
+            </div>
+            <p><em>En este video se demuestra la ejecución de la patada Bandal Chagui es una patada semi-circular basica de 
+                    TaeKwonDo se realiza levantando la rodilla, girando la cadera a 90º y extendiendo rapidamente la pierna pateando 
+                    con todo el empeine siendo una patada muy potente en cuanto ataque.</em></p>
+        </div>
+
+        <div class="video-box">
+            <div id="localShort3" class="short-local" style="background-image:url('thumbnail3.jpg');">
+                <div class="playIcon">▶</div>
+            </div>
+            <p><em>En el siguiente clip se muestra el primer Taeguk llamado Il Jang y es el primer poomsae (forma) que se aprende 
+                    en el arte marcial. Representa el símbolo de Keon, que simboliza el cielo, la luz, y el origen de todas las cosas, 
+                    siendo el comienzo de la creación. Se enfoca en la ejecución de movimientos básicos para enseñar los fundamentos del 
+                    equilibrio y la coordinación.</em></p>
+        </div>
+
+        <div class="video-box">
+            <div id="localShort4" class="short-local" style="background-image:url('thumbnail4.jpg');">
+                <div class="playIcon">▶</div>
+            </div>
+            <p><em>En este video se muestra un combate entre dos cintas negras 1er Dan.</em></p>
+        </div>
+
+    </div>
+</section>
+
+<section>
+    <h2>🥋 Nuestros Instructores de KickMaster 🥋</h2>
+    <div class="instructors">
+        <div class="cardInstructor">
+            <img src="Instructor_Juan_Paulino.jpg">
+            <p><strong>Instructor Juan Paulino Castillo</strong><br>Cuenta con más de 18 años de experiencia, 
+                    cinturón negro 5to dan, competidor destacado en campeche. Entrenador de la selección de Ciudad del Carmen, así como
+                    de la Selección de la Universidad Autónoma del Carmen (UNACAR), especialista en técnicas de combate.</strong><br></p>
+        </div>
+
+        <div class="cardInstructor">
+            <img src="Instructor_Jorge_Inda.jpg">
+            <p><strong>Instructor Jorge Enrique Inda Ramos</strong><br>Instructor multidisciplinar, cuenta con 14 años de entrenamiento, 
+                    cinturon negro 1er dan, competidor con gran desempeño compitiendo a nivel Nacional representando a Ciudad del Carmen, el 
+                    estado de Campeche y a la Universidad Autonóma del Carmen (UNACAR).</strong><br></p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>💳 Métodos de pago</h2>
+
+    <div class="payBox">
+
+        <button class="btnMetodo" onclick="mostrarPago('tarjeta')">
+            <img src="https://www.comercialsanluis.com/wp-content/uploads/2019/11/visa-logo-preview.png">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/MasterCard_Logo.svg/1280px-MasterCard_Logo.svg.png">
+        </button>
+
+        <button class="btnMetodo" onclick="mostrarPago('paypal')">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/b5/PayPal.svg">
+        </button>
+
+        <div id="formTarjeta" style="display:none; margin-top:20px;">
+            <label>Nombre del propietario</label>
+            <input type="text" placeholder="Ej. Juan Pérez">
+
+            <label>Número de tarjeta</label>
+            <input id="numTarjeta" type="text" maxlength="16" placeholder="16 dígitos" oninput="validarTarjeta(this)">
+
+            <label>Fecha de vencimiento (MM/YY)</label>
+            <input id="fechaVenc" type="text" maxlength="5" placeholder="MM/YY" oninput="validarFecha(this)">
+
+            <label>CVC</label>
+            <input id="cvc" type="text" maxlength="3" placeholder="123" oninput="validarCVC(this)">
+
+            <button class="btnPay">Pagar con tarjeta</button>
+        </div>
+
+        <div id="formPayPal" style="display:none; margin-top:20px;">
+            <label>Correo electrónico PayPal</label>
+            <input type="email" placeholder="ejemplo@correo.com">
+
+            <label>Contraseña</label>
+            <input type="password" placeholder="********">
+
+            <button class="btnPay">Iniciar pago con PayPal</button>
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    <p>© 2025 KickMaster - Escuela de Taekwondo</p>
+</footer>
+
+<script>
+function mostrarPago(opcion) {
+    document.getElementById("formTarjeta").style.display = opcion === "tarjeta" ? "block" : "none";
+    document.getElementById("formPayPal").style.display = opcion === "paypal" ? "block" : "none";
+}
+
+function validarTarjeta(input) { input.value = input.value.replace(/\D/g,''); }
+function validarCVC(input) { input.value = input.value.replace(/\D/g,''); }
+
+function validarFecha(input) {
+    let v = input.value.replace(/\D/g, '').slice(0,4);
+    if (v.length >= 2) v = v.slice(0,2) + "/" + v.slice(2);
+    input.value = v;
+    let mes = parseInt(v.slice(0,2)), anio = parseInt(v.slice(3));
+    if (mes < 1 || mes > 12) input.style.borderColor = "red";
+    else if (anio < 25 || anio > 40) input.style.borderColor = "red";
+    else input.style.borderColor = "green";
+}
+
+const videos = [
+    {id:"localShort1", src:"Video_KickMaster1.mp4"},
+    {id:"localShort2", src:"Video_KickMaster2.mp4"},
+    {id:"localShort3", src:"Video_KickMaster3.mp4"},
+    {id:"localShort4", src:"Video_KickMaster4.mp4", horizontal:true}
+];
+
+videos.forEach(v => {
+    document.getElementById(v.id).addEventListener("click", function(){
+        if(v.horizontal) this.classList.add("horizontal");
+        this.innerHTML = `
+            <video class="${v.horizontal ? 'horizontal' : ''}" controls autoplay style="width:100%; height:100%; border-radius:15px;">
+                <source src="${v.src}" type="video/mp4">
+            </video>`;
+    });
+});
+</script>
+
+</body>
+</html>
